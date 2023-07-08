@@ -1,10 +1,13 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strstr - fills memory with a constant byte.
- * @haystack: first bytes of the memory
- * @needle: constant byte b
- * Return: pointer to the resulting string dests
+ * *_strstr - locates a substring
+ * @haystack: string to search in
+ * @needle: substring to look for
+ *
+ * Return: pointer to the beginning of the located substring
+ * or NULL if the substring is not found
  */
 char *_strstr(char *haystack, char *needle)
 {
@@ -17,8 +20,8 @@ char *_strstr(char *haystack, char *needle)
 			if (haystack[i + j] != needle[j])
 				break;
 		}
-		if (needle[j] == '\0')
-			return (haystack + i);
+		if (!needle[j])
+			return (&haystack[i]);
 	}
-	return ('\0');
+	return (NULL);
 }

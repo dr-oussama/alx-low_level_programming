@@ -1,29 +1,35 @@
 #include "main.h"
 
 /**
- * _strspn - fills memory with a constant byte.
- * @s: first bytes of the memory
- * @accept: constant byte b
- * Return: pointer to the resulting string dests
+ * *_strspn - gets the length of a prefix substring
+ * @s: string to evaluate
+ * @accept: string containing the list of characters to match in s
+ *
+ * Return: the number of bytes in the initial segment
+ * of s which consist only of bytes from accept
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, j;
-	int notfound = 0;
+	int i, j, f, flag;
+
+	f = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (accept[i] == '\0')
-			break;
+		flag = 0;
 		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
-				break;
-			if (accept[j + 1] == '\0')
-				notfound = 1;
+			{
+				f++;
+				flag = 1;
+			}
 		}
-		if (notfound)
-			break;
+		if (flag == 0)
+		{
+			return (f);
+		}
 	}
-	return (i);
+
+	return (0);
 }

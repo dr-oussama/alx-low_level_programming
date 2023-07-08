@@ -1,17 +1,17 @@
 #include "main.h"
 
 /**
- * _isalpha - dqzdqzdqzdqzd
- * @c: Description of parameter x
+ * _isalpha - Function to check if given character
+ * is an alphabet
  *
- * Description: ddzqdqzd
- * section header: Section description)*
- * Return: Description of the returned value
+ * @c: character to be checked
+ * Return: 1 if given char is alphabet
+ * and 0 if otherwise
  */
+
 int _isalpha(int c)
 {
-	if ((c >= 65 && c <=  90) || (c >= 97 && c <= 122))
+	if ((c < 123 && c > 96) || (c < 91 && c > 64))
 		return (1);
-	else
-		return (0);
+	return (0);
 }

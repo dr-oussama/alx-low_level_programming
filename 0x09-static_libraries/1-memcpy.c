@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * _memcpy - fills memory with a constant byte.
- * @dest: first bytes of the memory
- * @src: constant byte b
- * @n:  bytes of the memory area pointed to by s
- * Return: pointer to the resulting string dests
+ * *_memcpy - copies memory area
+ * @dest: destination memory area
+ * @src: memory area to copy from
+ * @n: number of bytes to copy
+ *
+ * Return: pointer to dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
@@ -15,5 +16,6 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	{
 		dest[i] = src[i];
 	}
+
 	return (dest);
 }
