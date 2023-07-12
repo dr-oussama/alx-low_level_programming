@@ -1,41 +1,43 @@
 #include "main.h"
+#include <stdlib.h>
 /**
- * str_concat - function that concatenates two strings
- * @s1: first bytes of the memory
- * @s2: constant byte b
- * Return: pointer to the resulting string dests
+ * str_concat - get ends of input and add together for size
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i;
+	char *conct;
+	int i, ci;
 
-	char *copy;
-	int size1 = 0;
-	int size2 = 0;
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
-	while (s1 != NULL && s1[size1])
-	{
-		size1++;
-	}
-	while (s2 != NULL && s2[size2])
-	{
-		size2++;
-	}
-	copy = malloc(size1 + size2 + 1);
-	if (!copy)
-	{
+	i = ci = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[ci] != '\0')
+		ci++;
+	conct = malloc(sizeof(char) * (i + ci + 1));
+
+	if (conct == NULL)
 		return (NULL);
-	}
-	for (i = 0; i < size1 + size2; i++)
+	i = ci = 0;
+	while (s1[i] != '\0')
 	{
-		if (i < size1)
-		{
-			copy[i] = s1[i];
-		}
-		else
-		{
-			copy[i] = s2[i - size1];
-		}
+		conct[i] = s1[i];
+		i++;
 	}
-	return (copy);
+
+	while (s2[ci] != '\0')
+	{
+		conct[i] = s2[ci];
+		i++, ci++;
+	}
+	conct[i] = '\0';
+	return (conct);
 }
+
