@@ -1,3 +1,3 @@
 #!/bin/bash
-wget -P /tmp https://github.com/belboukayyoub/alx-low_level_programming/raw/master/0x18-dynamic_libraries/rand.so
-export LD_PREOAD=/tmp/rand.so
+wget -N -P /tmp https://raw.githubusercontent.com/nuuxcode/alx-low_level_programming/master/0x18-dynamic_libraries/randomx.so
+export LD_PRELOAD="/tmp/randomx.so"
